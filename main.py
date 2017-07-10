@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy import stats
 
 from parser import getGDPandPopulationData
 
@@ -26,16 +27,23 @@ colors = np.asarray(country_gdp_per_caps)
 area = np.pi * (50.0 * np.asarray(country_gdp_per_caps) / largest_gdp_per_cap)**2
 
 plt.ion()
-plt.figure()
+fig, ax = plt.subplots()
 plt.scatter(country_populations, country_gdps, s=area, c=colors, alpha=0.5)
 
 for i, txt in enumerate(country_names):
     plt.annotate(txt, (country_populations[i], country_gdps[i]))
 
-# calc the trendline
 z = np.polyfit(country_populations, country_gdps, 1)
 p = np.poly1d(z)
 plt.plot(country_populations, p(country_populations), "r--")
+
+slope, intercept, r_value, p_value, std_err = stats.linregress(country_populations,country_gdps)
+rsq = r_value**2
+
+textstr = '$r^2=%.2f$'%(rsq)
+props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+ax.text(0.05, 0.95, textstr, transform=ax.transAxes, fontsize=14,
+        verticalalignment='top', bbox=props)
 
 plt.xlabel('Country Population (Millions)')
 plt.ylabel('Country GDP (PPP)')
@@ -68,7 +76,7 @@ for i in range(0, len(country_data)):
 colors = np.asarray(country_gdp_per_caps)
 area = np.pi * (50.0 * np.asarray(country_gdp_per_caps) / largest_gdp_per_cap)**2
 
-plt.figure()
+fig, ax = plt.subplots()
 plt.scatter(country_populations, country_gdps, s=area, c=colors, alpha=0.5)
 
 for i, txt in enumerate(country_names):
@@ -77,6 +85,14 @@ for i, txt in enumerate(country_names):
 z = np.polyfit(country_populations, country_gdps, 1)
 p = np.poly1d(z)
 plt.plot(country_populations, p(country_populations), "r--")
+
+slope, intercept, r_value, p_value, std_err = stats.linregress(country_populations,country_gdps)
+rsq = r_value**2
+
+textstr = '$r^2=%.2f$'%(rsq)
+props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+ax.text(0.05, 0.95, textstr, transform=ax.transAxes, fontsize=14,
+        verticalalignment='top', bbox=props)
 
 plt.xlabel('Country Population (Millions)')
 plt.ylabel('Country GDP (PPP)')
@@ -109,7 +125,7 @@ for i in range(0, len(country_data)):
 colors = np.asarray(country_gdp_per_caps)
 area = np.pi * (50.0 * np.asarray(country_gdp_per_caps) / largest_gdp_per_cap)**2
 
-plt.figure()
+fig, ax = plt.subplots()
 plt.scatter(country_populations, country_gdps, s=area, c=colors, alpha=0.5)
 
 for i, txt in enumerate(country_names):
@@ -118,6 +134,14 @@ for i, txt in enumerate(country_names):
 z = np.polyfit(country_populations, country_gdps, 1)
 p = np.poly1d(z)
 plt.plot(country_populations, p(country_populations), "r--")
+
+slope, intercept, r_value, p_value, std_err = stats.linregress(country_populations,country_gdps)
+rsq = r_value**2
+
+textstr = '$r^2=%.2f$'%(rsq)
+props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+ax.text(0.05, 0.95, textstr, transform=ax.transAxes, fontsize=14,
+        verticalalignment='top', bbox=props)
 
 plt.xlabel('Country Population (Millions)')
 plt.ylabel('Country GDP (PPP)')
@@ -150,7 +174,7 @@ for i in range(0, len(country_data)):
 colors = np.asarray(country_gdp_per_caps)
 area = np.pi * (50.0 * np.asarray(country_gdp_per_caps) / largest_gdp_per_cap)**2
 
-plt.figure()
+fig, ax = plt.subplots()
 plt.scatter(country_populations, country_gdps, s=area, c=colors, alpha=0.5)
 
 for i, txt in enumerate(country_names):
@@ -159,6 +183,14 @@ for i, txt in enumerate(country_names):
 z = np.polyfit(country_populations, country_gdps, 1)
 p = np.poly1d(z)
 plt.plot(country_populations, p(country_populations), "r--")
+
+slope, intercept, r_value, p_value, std_err = stats.linregress(country_populations,country_gdps)
+rsq = r_value**2
+
+textstr = '$r^2=%.2f$'%(rsq)
+props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+ax.text(0.05, 0.95, textstr, transform=ax.transAxes, fontsize=14,
+        verticalalignment='top', bbox=props)
 
 plt.xlabel('Country Population (Millions)')
 plt.ylabel('Country GDP (PPP)')
@@ -191,7 +223,7 @@ for i in range(0, len(country_data)):
 colors = np.asarray(country_gdp_per_caps)
 area = np.pi * (50.0 * np.asarray(country_gdp_per_caps) / largest_gdp_per_cap)**2
 
-plt.figure()
+fig, ax = plt.subplots()
 plt.scatter(country_populations, country_gdps, s=area, c=colors, alpha=0.5)
 
 for i, txt in enumerate(country_names):
@@ -200,6 +232,14 @@ for i, txt in enumerate(country_names):
 z = np.polyfit(country_populations, country_gdps, 1)
 p = np.poly1d(z)
 plt.plot(country_populations, p(country_populations), "r--")
+
+slope, intercept, r_value, p_value, std_err = stats.linregress(country_populations,country_gdps)
+rsq = r_value**2
+
+textstr = '$r^2=%.2f$'%(rsq)
+props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+ax.text(0.05, 0.95, textstr, transform=ax.transAxes, fontsize=14,
+        verticalalignment='top', bbox=props)
 
 plt.xlabel('Country Population (Millions)')
 plt.ylabel('Country GDP (PPP)')
